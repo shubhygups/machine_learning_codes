@@ -8,9 +8,8 @@ hgd.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 for filename in os.listdir('pedestrian_images'):
     print(filename)
     image = cv2.imread(os.path.join('pedestrian_images', filename))
-    if image is not None:  # and 'pedestrian6' in filename:
-        image = imutils.resize(image, width=min(1000, image.shape[1]))
-        # orig = image.copy()
+    if image is not None:
+        image = imutils.resize(image, width=min(800, image.shape[1]))
         (regions, weights) = hgd.detectMultiScale(image, winStride=(2, 2), padding=(4, 4), scale=1.05)
         print(regions)
         if len(regions):
