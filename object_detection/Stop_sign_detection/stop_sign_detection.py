@@ -7,7 +7,6 @@ for filename in os.listdir('stop_sign_images'):
     if image is not None:
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
         stop_data = cv2.CascadeClassifier('stop_data.xml')
         region = stop_data.detectMultiScale(image_gray, minSize=(20, 20))
         if len(region):
